@@ -1,16 +1,24 @@
-# mobile_cv
+# Mobile CV Application
 
-A new Flutter project.
+The application should allow users to both view and edit the provided CV information.
 
-## Getting Started
+## Objective
 
-This project is a starting point for a Flutter application.
+The objective of this project is to create a mobile application that fulfills the following requirements:
 
-A few resources to get you started if this is your first Flutter project:
+### Personal Information
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+The application should display the following personal information:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Your full name
+- Slack username
+- GitHub handle
+- A brief personal bio
+
+### Home/First Page (CV View)
+
+This will be the initial screen that users encounter when they open the app. It should come pre-filled with your aforementioned details and be designed in a clean and organized manner to present the CV information clearly.
+
+### Real-time Updates
+
+After making changes to the CV details in the editing page, returning to the home/first page should immediately reflect the alterations. The app should update dynamically without requiring manual refresh.
