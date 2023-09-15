@@ -11,7 +11,7 @@ class Home extends StatelessWidget {
     final Map<String, Object> detailsForm =
         (Provider.of<DetailProvider>(context).details);
 
-    print((Provider.of<DetailProvider>(context).details));
+    // print((Provider.of<DetailProvider>(context).details));
 
     return Scaffold(
       appBar: AppBar(
@@ -66,7 +66,7 @@ class Home extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  detailsForm['slack_username'].toString(),
+                  detailsForm['slack'].toString(),
                 )
               ],
             ),
@@ -84,7 +84,7 @@ class Home extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  detailsForm['github_handle'].toString(),
+                  detailsForm['github'].toString(),
                 )
               ],
             ),

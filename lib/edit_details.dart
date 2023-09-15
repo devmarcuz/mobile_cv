@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_cv/details_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class EditPage extends StatefulWidget {
   final Map<String, Object> detailsForm;
@@ -25,8 +26,8 @@ class _EditPageState extends State<EditPage> {
 
     // Assign the detailsForm map
     name = widget.detailsForm["fullName"]?.toString() ?? "";
-    slack = widget.detailsForm["slack_username"]?.toString() ?? "";
-    github = widget.detailsForm["github_handle"]?.toString() ?? "";
+    slack = widget.detailsForm["slack"]?.toString() ?? "";
+    github = widget.detailsForm["github"]?.toString() ?? "";
     bio = widget.detailsForm["bio"]?.toString() ?? "";
   }
 
@@ -164,11 +165,23 @@ class _EditPageState extends State<EditPage> {
                         .updateDetails(
                       {
                         "fullName": name,
-                        "slack_username": slack,
-                        "github_handle": github,
+                        "slack": slack,
+                        "github": github,
                         "bio": bio,
                       },
                     );
+
+                    writeIntToSharedPreferences() async {
+                      SharedPreferences prefs =
+                          await SharedPreferences.getInstance();
+                      prefs.setString("fullName", name);
+                      prefs.setString("slack", slack);
+                      prefs.setString("github", github);
+                      prefs.setString("bio", bio);
+                    }
+
+                    writeIntToSharedPreferences();
+
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
                         content: Text("Details updated successfully!"),
