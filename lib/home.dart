@@ -18,17 +18,39 @@ class Home extends StatelessWidget {
         title: const Text("CV Details"),
         centerTitle: true,
         actions: [
-          IconButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => EditPage(
-                      detailsForm: detailsForm,
-                    ),
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => EditPage(
+                    detailsForm: detailsForm,
                   ),
-                );
-              },
-              icon: const Icon(Icons.edit))
+                ),
+              );
+            },
+            child: Row(
+              children: [
+                IconButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => EditPage(
+                          detailsForm: detailsForm,
+                        ),
+                      ),
+                    );
+                  },
+                  icon: const Icon(Icons.edit),
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(
+                    right: 20,
+                  ),
+                  child: Text("Edit"),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
       body: Container(
